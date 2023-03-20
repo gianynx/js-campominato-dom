@@ -36,11 +36,12 @@ function drawSquare(content, numSquares) {
 // creo la function 'createBombs' per generare le 16 bombe
 function createBombs(numBombs, max) {
     const bombs = [];
-    while (bombs.lenght < numBombs) {
+    while (bombs.length < numBombs) {
         const bomb = getRndInteger(1, max);
         if (!bombs.includes(bomb)) {
             bombs.push(bomb);
         }
+        console.log(bombs);
     }
     return bombs;
 }
@@ -57,6 +58,7 @@ function play(event) {
     message.innerHTML = `Choose the difficulty and press play!`;
 
     let score = 0;
+    let gameOver = false;
     const BOMBS = 16;
     const level = document.getElementById('level').value;
 
@@ -92,7 +94,8 @@ function play(event) {
 
         square.addEventListener('click', safeUnsafe);
         function safeUnsafe() {
-                if (bombs.includes(square.innerHTML)) {
+            if (!gameOver) {
+                if (bombs.includes(parseInt(square.innerHTML))) {
                     square.classList.add('unsafe');
                     message.innerHTML = `You lost! Your score is ${score}`;
                     gameOver = true;
@@ -101,6 +104,7 @@ function play(event) {
                     score++;
                     message.innerHTML = score === maxScore ? `You win! Your score is ${score}` : `Your score is ${score}`;
                 }
+            }
         }
 
         game.appendChild(square);
