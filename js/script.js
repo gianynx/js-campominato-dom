@@ -91,7 +91,9 @@ function play(event) {
 
         square.addEventListener('click', unsafeSafe);
         function unsafeSafe() {
-            if (!gameOver) {
+
+            // aggiungo una condizione if specificando che se 'gameOver' diventa false e se nessuno degli 'square' contiene la classe 'safe', allora si interrompe l'evento 'click'
+            if (!gameOver && !this.classList.contains('safe')) {
                 if (bombs.includes(parseInt(this.innerHTML))) {
                     this.classList.add('unsafe');
                     message.innerHTML = `<h2>You lost! Your score is ${score} !</h2>`;
