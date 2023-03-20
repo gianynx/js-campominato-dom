@@ -1,0 +1,137 @@
+/*****************************************************
+CSS GENERAL
+*****************************************************/
+:root {
+    --dark_color: #000000;
+    --primary_color: #ffffff;
+    --header_footer_color: #ccff33; 
+    --st_gr_main_color: #006400;
+    --nd_gr_main_color: #008000;
+    --rd_gt_main_color: #70e000;
+    --h1_color: #27187e;
+    --select_bg: #0000;
+    --score_color: #8d8e90;
+    --safe_color: #001f60;
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+}
+
+.header_footer_bg {
+    background-color: var(--header_footer_color);
+}
+
+/*****************************************************
+CSS UTILITIES
+*****************************************************/
+
+.grid {
+    border: 1px solid var(--dark_color);
+}
+
+/*****************************************************
+CSS "Campo Minato"
+*****************************************************/
+/*****************************************************
+CSS header
+*****************************************************/
+
+header {
+    height: 120px;
+    width: 100%;
+}
+
+.header_container {
+    max-width: 1000px;
+}
+
+.header_left {
+    height: 100%;
+    width: 20%;
+    z-index: 1000;
+}
+
+.header_left img {
+    height: 100%;
+    width: 100%;
+}
+
+.header_center {
+    height: 100%;
+    width: 30%;
+    padding-top: 40px;
+}
+
+h1 {
+    color: var(--h1_color);
+}
+
+.header_right {
+    height: 100%;
+    width: 10%;
+    padding-right: 5px;
+}
+
+.form-select {
+    background-color: var(--select_bg);
+    font-size: 11.2px;
+}
+
+.header_right button:hover {
+    background-color: var(--h1_color);
+}
+
+/*****************************************************
+CSS main
+*****************************************************/
+
+main {
+    height: calc(100% - 180px);
+    background-image: linear-gradient(to right, #70e000, #008000, #006400);
+}
+
+.container {
+    height: 100%;
+    max-width: 900px;
+}
+
+#game {
+    height: 100%;
+    width: 400px;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.safe {
+    background-color: var(--safe_color);
+    color: var(--primary_color);
+}
+
+#score h3 {
+    padding-right: 8rem;
+    font-size: 20px;
+    color: var(--score_color);
+}
+
+/*****************************************************
+CSS footer
+*****************************************************/
+
+footer {
+    height: 60px;
+}
+
+.footer_container {
+    max-width: 1200px;
+}
+
+.footer_container span {
+    padding-right: 6rem;
+}
