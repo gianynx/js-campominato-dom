@@ -18,6 +18,8 @@ Quando si clicca su una bomba e finisce la partita, il software scopre tutte le 
 
 const form = document.querySelector('form');
 form.addEventListener('submit', play);
+const message = document.getElementById('score');
+message.innerHTML = `Choose the difficulty and press play!`;
 
 // creo la function 'drawSquare' per disegnare il singolo quadrato all'interno di #game
 // alla function 'drawSquare' servono due argomenti: 'index' (indice di ogni square) e 'numSquares' (numero dei quadratini)
@@ -51,6 +53,10 @@ function play(event) {
     // svuotiamo #game ogni volta che l'user clicca sul btn 'play'
     game.innerHTML = '';
 
+    const message = document.getElementById('score');
+    message.innerHTML = `Choose the difficulty and press play!`;
+
+    let score = 0;
     const BOMBS = 16;
     const level = document.getElementById('level').value;
 
@@ -75,15 +81,26 @@ function play(event) {
     // chiamo la function 'createBombs' per generare le bombe con l'array
     const bombs = createBombs(BOMBS, squareNumbers);
 
+    // definisco il punteggio massimo
+    let maxScore = squareNumbers - BOMBS;
+
     // creo un loop for per disegnare i quadratini
     for (let a = 1; a <= squareNumbers; a++) {
 
         // chiamo la function 'drawSquare' all'interno del loop for
         const square = drawSquare(a, squarePerRow);
 
-        square.addEventListener('click', safe);
-        function safe() {
-            square.classList.add('safe');
+        square.addEventListener('click', safeUnsafe);
+        function safeUnsafe() {
+                if (bombs.includes(square.innerHTML)) {
+                    square.classList.add('unsafe');
+                    message.innerHTML = `You lost! Your score is ${score}`;
+                    gameOver = true;
+                } else {
+                    square.classList.add('safe');
+                    score++;
+                    message.innerHTML = score === maxScore ? `You win! Your score is ${score}` : `Your score is ${score}`;
+                }
         }
 
         game.appendChild(square);

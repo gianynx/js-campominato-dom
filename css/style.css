@@ -12,6 +12,7 @@ CSS GENERAL
     --select_bg: #0000;
     --score_color: #8d8e90;
     --safe_color: #001f60;
+    --unsafe_color: #fe0001;
 }
 
 body {
@@ -114,7 +115,12 @@ main {
     color: var(--primary_color);
 }
 
-#score h3 {
+.unsafe {
+    background-color: var(--unsafe_color);
+    color: var(--primary_color);
+}
+
+#score {
     padding-right: 8rem;
     font-size: 20px;
     color: var(--score_color);
