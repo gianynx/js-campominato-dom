@@ -40,9 +40,8 @@ function createBombs(numBombs, max) {
         const bomb = getRndInteger(1, max);
         if (!bombs.includes(bomb)) {
             bombs.push(bomb);
-        }
-        console.log(bombs);
-    }
+        };
+    };
     return bombs;
 }
 
@@ -54,12 +53,10 @@ function play(event) {
     // svuotiamo #game ogni volta che l'user clicca sul btn 'play'
     game.innerHTML = '';
 
-    const message = document.getElementById('score');
-    message.innerHTML = `Choose the difficulty and press play!`;
-
     let score = 0;
     let gameOver = false;
     const BOMBS = 16;
+
     const level = document.getElementById('level').value;
 
     // creo la variable 'squareNumbers' a seconda del grado di difficoltà
@@ -103,9 +100,9 @@ function play(event) {
                     this.classList.add('safe');
                     score++;
                     message.innerHTML = score === maxScore ? `<h2>You win! Your score is ${score} !</h2>` : `<h4 class="pr_5">Your score is ${score} !</h4>`;
-                }
-            }
-        }
+                };
+            };
+        };
 
         game.appendChild(square);
 
