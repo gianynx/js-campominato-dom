@@ -92,17 +92,17 @@ function play(event) {
         // chiamo la function 'drawSquare' all'interno del loop for
         const square = drawSquare(a, squarePerRow);
 
-        square.addEventListener('click', safeUnsafe);
-        function safeUnsafe() {
+        square.addEventListener('click', unsafeSafe);
+        function unsafeSafe() {
             if (!gameOver) {
-                if (bombs.includes(parseInt(square.innerHTML))) {
-                    square.classList.add('unsafe');
-                    message.innerHTML = `You lost! Your score is ${score}`;
+                if (bombs.includes(parseInt(this.innerHTML))) {
+                    this.classList.add('unsafe');
+                    message.innerHTML = `<h2>You lost! Your score is ${score} !</h2>`;
                     gameOver = true;
                 } else {
-                    square.classList.add('safe');
+                    this.classList.add('safe');
                     score++;
-                    message.innerHTML = score === maxScore ? `You win! Your score is ${score}` : `Your score is ${score}`;
+                    message.innerHTML = score === maxScore ? `<h2>You win! Your score is ${score} !</h2>` : `<h4 class="pr_5">Your score is ${score} !</h4>`;
                 }
             }
         }
