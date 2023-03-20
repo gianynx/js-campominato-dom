@@ -22,7 +22,7 @@ const message = document.getElementById('score');
 message.innerHTML = `Choose the difficulty and press play!`;
 
 // creo la function 'drawSquare' per disegnare il singolo quadrato all'interno di #game
-// alla function 'drawSquare' servono due argomenti: 'index' (indice di ogni square) e 'numSquares' (numero dei quadratini)
+// alla function 'drawSquare' servono due argomenti: 'content' (contenuto di ogni square) e 'numSquares' (numero dei quadratini)
 function drawSquare(content, numSquares) {
     const square = document.createElement('div');
     square.classList.add('square');
